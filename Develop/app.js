@@ -4,21 +4,25 @@
 class Employee {
     constructor(name, id, title) {
         this.name = name,
-            this.id = id,
-            this.title = title,
-}
-    getName(),
-
-    getId(),
-
-    getEmail(),
-
-    getRole(), // Returns 'Employee'
+        this.id = id,
+        this.title = title,
+    }
+    
+    getName() {
+    }
+    getId() {
+    }
+    getEmail() {
+    }
+    getRole() {
+        return this.title;
+    } // Returns 'Employee'
 };
 
 // In addition to `Employee`'s properties and methods, `Manager` will also have:
 class Manager extends Employee {
     constructor(officeNumber) {
+        super();
         this.officeNumber = officeNumber,
     }
 
@@ -28,15 +32,18 @@ class Manager extends Employee {
 // In addition to `Employee`'s properties and methods, `Engineer` will also have:
 class Engineer extends Employee {
     constructor(github) {
+        super();
         this.github = github,
     }
     getGithub(),
+
     getRole(), // Overridden to return 'Engineer'
 };
 
 // In addition to `Employee`'s properties and methods, `Intern` will also have:
 class Intern {
     constructor(school) {
+        super();
         this.school = school,
     }
     getSchool(),
