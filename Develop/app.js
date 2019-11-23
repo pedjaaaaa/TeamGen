@@ -1,13 +1,55 @@
+require inquirer = require("inquirer");
+require fs = require("fs");
+
+
+const questions [{
+        type: "input",
+        name: "name",
+        message: "What is your name?"
+    },
+    {
+        type: "list",
+        message: "What is your job role?",
+        name: "title",
+        choices: [
+            "Manager",
+            "Engineer",
+            "Intern",
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "What is your employee id?",
+    },
+    {
+        type: "input",
+        name: "officeNumber",
+        message: "What is your office number?",
+    },
+    {
+        type: "input",
+        name: "github",
+        message: "What is your Github username?"
+    }
+    {
+        type: "input",
+        name: "school",
+        message: "What school are you attending?",
+    }
+
+]).then(function (data) {
+
+})
 
 // The first class is an `Employee` parent class with the following properties and
 // methods:
 class Employee {
     constructor(name, id, title) {
         this.name = name,
-        this.id = id,
-        this.title = title,
+            this.id = id,
+            this.title = title,
     }
-    
+
     getName() {
     }
     getId() {
@@ -18,7 +60,6 @@ class Employee {
         return this.title;
     } // Returns 'Employee'
 };
-
 // In addition to `Employee`'s properties and methods, `Manager` will also have:
 class Manager extends Employee {
     constructor(officeNumber) {
@@ -28,7 +69,6 @@ class Manager extends Employee {
 
     getRole(),
 };
-
 // In addition to `Employee`'s properties and methods, `Engineer` will also have:
 class Engineer extends Employee {
     constructor(github) {
@@ -39,7 +79,6 @@ class Engineer extends Employee {
 
     getRole(), // Overridden to return 'Engineer'
 };
-
 // In addition to `Employee`'s properties and methods, `Intern` will also have:
 class Intern {
     constructor(school) {
