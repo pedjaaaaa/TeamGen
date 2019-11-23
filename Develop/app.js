@@ -3,18 +3,18 @@ require fs = require("fs");
 
 
 const questions [{
+    type: "list",
+    message: "What is your job role?",
+    name: "title",
+    choices: [
+        "Manager",
+        "Engineer",
+        "Intern",
+},
+    {
         type: "input",
         name: "name",
         message: "What is your name?"
-    },
-    {
-        type: "list",
-        message: "What is your job role?",
-        name: "title",
-        choices: [
-            "Manager",
-            "Engineer",
-            "Intern",
     },
     {
         type: "input",
@@ -26,20 +26,29 @@ const questions [{
         name: "officeNumber",
         message: "What is your office number?",
     },
-    {
-        type: "input",
-        name: "github",
-        message: "What is your Github username?"
-    }
-    {
-        type: "input",
-        name: "school",
-        message: "What school are you attending?",
-    }
 
-]).then(function (data) {
+ 
 
-})
+const studentQuestion [{
+    type: "input",
+    name: "school",
+    message: "What school are you attending?",
+
+}];
+
+const engineerQuestion [{
+
+    type: "input",
+    name: "github",
+    message: "What is your Github username?"
+    
+}];
+
+
+inquirer.prompt(questions)
+    .then(function (data) {
+
+    })
 
 // The first class is an `Employee` parent class with the following properties and
 // methods:
