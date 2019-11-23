@@ -9,9 +9,9 @@ const initQuestion = [{
         "Manager",
         "Engineer",
         "Intern",
-]}];
-
-const questions = [{
+    ]
+    },
+    {
     type: "input",
     name: "name",
     message: "What is your name?"
@@ -19,18 +19,25 @@ const questions = [{
 {
     type: "input",
     name: "id",
-    message: "What is your employee id?",
+    message: "What is your employee id?"
 },
 {
     type: "input",
+    name: "email",
+    message: "What is your email?"
+
+}];
+
+const managerQuestion = [{
+    type: "input",
     name: "officeNumber",
-    message: "What is your office number?",
+    message: "What is your office number?"
 }];
 
 const studentQuestion = [{
     type: "input",
     name: "school",
-    message: "What school are you attending?",
+    message: "What school are you attending?"
 }];
 
 const engineerQuestion = [{
@@ -40,24 +47,26 @@ const engineerQuestion = [{
 }];
 
 inquirer.prompt(initQuestion)
-    .then(function (data) {
-        if (data.title === "Manager") {
-            inquirer.prompt(questions)
-            .then(function (data) {
-            })
-        }
-        if (data.title === "Engineer") {
-            inquirer.prompt(questions, engineerQuestion)
-            .then(function (data) {
+    .then(function (resp) {
+        console.log(resp);
+        if (resp.title === "Manager") {
+            inquirer.prompt(managerQuestion)
+                .then(function (res) {
 
-            })
+                })
         }
-        if (data.title === "Intern") {
-            inquirer.prompt(questions, studentQuestion)
-            .then(function (data) {
-                
-            })
-            
+        if (resp.title === "Engineer") {
+            inquirer.prompt(engineerQuestion)
+                .then(function (res) {
+
+                })
+        }
+        if (resp.title === "Intern") {
+            inquirer.prompt(studentQuestion)
+                .then(function (res) {
+
+                })
+
         }
     })
 
@@ -66,24 +75,27 @@ inquirer.prompt(initQuestion)
 // class Employee {
 //     constructor(name, id, title) {
 //         this.name = name,
-//         this.id = id,
-//         this.title = title,
+//             this.id = id,
+//             this.title = title,
 //     };
 
 //     getName() {
-//     }
+//         return this.name;
+//     };
 //     getId() {
-//     }
+//         return this.id;
+//     };
 //     getEmail() {
-//     }
+
+//     };
 //     getRole() {
 //         return this.title;
-//     } // Returns 'Employee'
+//     }; // Returns 'Employee'
 // };
 // // In addition to `Employee`'s properties and methods, `Manager` will also have:
 // class Manager extends Employee {
 //     constructor(officeNumber) {
-//         super();
+//         super(name, id, title);
 //         this.officeNumber = officeNumber,
 //     }
 
@@ -92,12 +104,12 @@ inquirer.prompt(initQuestion)
 // // In addition to `Employee`'s properties and methods, `Engineer` will also have:
 // class Engineer extends Employee {
 //     constructor(github) {
-//         super();
+//         super(name, id, title);
 //         this.github = github,
 //     }
-//     getGithub(),
+//     getGithub();
 
-//     getRole(), // Overridden to return 'Engineer'
+//     getRole(); // Overridden to return 'Engineer'
 // };
 // // In addition to `Employee`'s properties and methods, `Intern` will also have:
 // class Intern {
@@ -105,19 +117,20 @@ inquirer.prompt(initQuestion)
 //         super();
 //         this.school = school,
 //     }
-//     getSchool(),
-//     getRole(), // Overridden to return 'Intern'
+//     getSchool();
+
+//     getRole(); // Overridden to return 'Intern'
 // }
-// ### User input
+// // ### User input
 
-// The project must prompt the user to build an engineering team. An engineering
-// team consists of a manager, and any number of engineers and interns.
+// // The project must prompt the user to build an engineering team. An engineering
+// // team consists of a manager, and any number of engineers and interns.
 
-// ### Roster output
+// // ### Roster output
 
-// The project must generate a `team.html` page in the `output` directory, that displays a nicely formatted team roster. Each team member should display the following in no particular order:
+// // The project must generate a `team.html` page in the `output` directory, that displays a nicely formatted team roster. Each team member should display the following in no particular order:
 
-//   * Name
-//   * Role
-//   * ID
-//   * Role-specific property (School, link to GitHub profile, or office number)
+// //   * Name
+// //   * Role
+// //   * ID
+// //   * Role-specific property (School, link to GitHub profile, or office number)
