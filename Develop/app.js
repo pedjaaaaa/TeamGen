@@ -10,7 +10,6 @@ const Manager = require("./classes/Manager");
 
 const writefileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
-let teamName;
 let team = [];
 let x = 0;
 
@@ -78,7 +77,6 @@ function buildHTML() {
     let html = fs.readFileSync("./temps/main.html", "utf8");
     let $html = cheerio.load(html);
     $html("#addMember").html("");
-    $html("#title").html(teamName);
     writefileAsync("./temps/main.html", $html.html())
         .then(function () {
             console.log("Team was added to main.html");
