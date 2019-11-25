@@ -12,10 +12,9 @@ const writefileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
 let teamName;
 let team = [];
-let i = 0;
+let x = 0;
 
 build();
-
 
 function build() {
     inquirer.prompt(managerQuestions)
@@ -91,8 +90,8 @@ function buildHTML() {
 
 
 function addHTML() {
-    if (i < team.length) {
-        member = team[i++];
+    if (x < team.length) {
+        member = team[x++];
         if (member.getRole() === "Manager") addManager(member);
         else if (member.getRole() === "Engineer") addEngineer(member);
         else addIntern(member);
